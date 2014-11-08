@@ -11,7 +11,7 @@ for_dec(Min, Min, F) -> [F(Min)];
 for_dec(I, Min, F) -> [F(I)| for_dec(I - 1, Min, F)].
 
 %% use K instead 1 as the step 
-for_ins(Max, Max, K, F) -> [F(Max)];
+for_ins(Max, Max, _, F) -> [F(Max)];
 for_ins(I, Max, K, F) -> 
 	case I =< Max of 
 		true ->
@@ -21,7 +21,7 @@ for_ins(I, Max, K, F) ->
 	end.
 
 %% use K instead 1 as the step
-for_dec(Min, Min, F, K) -> [F(Min)];
+for_dec(Min, Min, F, _) -> [F(Min)];
 for_dec(I, Min, F, K) -> 
 	case I >= Min of 
 		true ->
